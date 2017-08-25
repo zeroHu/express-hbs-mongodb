@@ -1,0 +1,11 @@
+{{!< main}}
+<div>
+    i am user hbs{{ title }} {{ data.1.name }}
+    <div>
+        我是helper1{{{wordToSubstring 'this is a word'}}}
+    </div>
+    <div>
+        我是helper2{{{testhelper 'xxx'}}}
+    </div>
+</div>
+{{>footer}}
