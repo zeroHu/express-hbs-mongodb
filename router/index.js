@@ -14,13 +14,8 @@ db.once('open', function callback() {
     console.log('========= mongodb open =========');
 });
 
-// 定义book
-router.get('/book', function(req, res) {
-    res.send('this is a get book api');
-});
-
 // 定义userinfo
-router.get('/databaseinfo', function(req, res) {
+router.get('/', function(req, res) {
     Users.find({}, function(err, user) {
         if (err) {
             console.log(err);
@@ -29,6 +24,11 @@ router.get('/databaseinfo', function(req, res) {
         //这里也可以json的格式直接返回数据res.json({data: users});
         res.render('pages/users', { title: 'this is a databaseinfo get request', data: user });
     });
+});
+
+// 定义book
+router.get('/book', function(req, res) {
+    res.send('this is a get book api');
 });
 
 // request 插件请求别的服务器的数据
