@@ -1,0 +1,17 @@
+{{!< main}}
+<title>我是users页面</title>
+<div>
+    <form action="/adduser" method="post">
+        <label for="">姓名</label>
+        <input type="text" name="name" class="name">
+        <br>
+        <label for="">年龄</label>
+        <input type="number" name="year" class="year">
+        <br>
+        <input type="submit" value="提交" />
+    </form>
+</div>
+{{>footer}}
+<script>
+    console.log('111');
+</script>

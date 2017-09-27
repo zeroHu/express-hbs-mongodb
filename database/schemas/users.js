@@ -4,7 +4,8 @@
 var mongoose = require('mongoose');
 //申明一个mongoons对象
 var UsersSchema = new mongoose.Schema({
-    name: String
+    name: String,
+    year: Number
 });
 /**
  * ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
