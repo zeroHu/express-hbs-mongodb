@@ -1,6 +1,10 @@
 {{!< main}}
-<title>我是users页面</title>
-<div>
+<style>
+    input {
+        border:1px solid red;
+    }
+</style>
+<div class="adduser">
     <form action="/adduser" method="post">
         <label for="">姓名</label>
         <input type="text" name="name" class="name">

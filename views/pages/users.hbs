@@ -1,8 +1,47 @@
 {{!< main}}
-<div>
+<style>
+    table {
+        border-collapse:collapse;
+    }
+    table td {
+        cursor: pointer;
+        padding:0 10px;
+    }
+</style>
+<div class="users">
     <div>我是添加详情表</div>
-    {{#each userData}}
-    <div>姓名：{{name}}</div>
-    <div>年龄：{{year}}</div>
-    {{/each}}
+    <table border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>操作</th>
+        </tr>
+        {{#each userData}}
+        <tr dataid="{{_id}}">
+            <td>{{ name }}</td>
+            <td>{{ year }}</td>
+            <td class="del">删除</td>
+        </tr>
+        {{/each}}
+    </table>
 </div>
+<script>
+    $(function(){
+        // 删除
+        $('.del').click(function(){
+            let id = $(this).parent('tr').attr('dataid'),
+                $this = $(this);
+            $.post('/deluser',{
+                id:id,
+            },function(data){
+                // 成功的情况下
+                if(data.status == 0){
+                    console.log('删除成功');
+                    $this.parent('tr').remove();
+                }else{
+                    alert('删除失败');
+                }
+            });
+        });
+    });
+</script>

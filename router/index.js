@@ -59,13 +59,31 @@ router.post('/adduser', function(req, res) {
         if (err) {
             res.json({
                 errcode: -1,
-                errmsg: '增加人口失败'
+                msg: '增加人口失败'
             });
             return;
         }
         res.redirect('/users');
     });
 });
+
+// 删除人口接口
+router.post('/deluser',function(req,res){
+    Users.findByIdAndRemove({ _id: req.body.id }, function(err, doc) {
+        if (err) {
+            res.json({
+                status: -1,
+                msg:'删除失败'
+            });
+            return;
+        }
+        res.json({
+            status: 0,
+            msg: '删除成功'
+        });
+    });
+});
+
 // request 插件请求别的服务器的数据
 router.get('/user/info', function(req, res, next) {
     request('http://www.xfz.cn/api/website/user/info/', function(error, response, body) {
