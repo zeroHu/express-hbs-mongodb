@@ -8,7 +8,8 @@
 * 模块化增加registerHelper
 
 > [项目成果展示地址](http://www.zeroyh.cn)
-s
+
+
 ```
 准备工作
     安装mongodb
@@ -20,7 +21,7 @@ s
 ```
 
 ```
-项目初始化
+新项目初始化
     express –hbs –css sass yourDemoName
     cd yourDemoName
     npm install
