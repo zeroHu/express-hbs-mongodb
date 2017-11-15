@@ -12,4 +12,21 @@
     <p><a href="/add">go to 添加用户页面</a></p>
     <p><a href="/users">go to 查看用户表页面</a></p>
     <p><a href="/theme">go to theme主题模板页面</a></p>
+    <div class="captcha"></div>
 </div>
+<script>
+    $(function(){
+        function getCaptcha(){
+            $.get('/captcha',function(res){
+                if(res.status == 0){
+                    $('.captcha').html(res.data);
+                }
+            });
+        }
+        getCaptcha();
+        // 点击图片重新获取
+        $('.captcha').click(function(){
+            getCaptcha();
+        });
+    })
+</script>

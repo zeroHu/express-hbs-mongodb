@@ -3,6 +3,7 @@ const express = require('express');
 const request = require('request');
 const Users = require('../database/modules/users'); //导入模型数据模块
 const router = express.Router();
+const svgCaptcha = require('svg-captcha');
 
 // 连接数据库
 mongoose.connect('mongodb://localhost/expresshbs');
@@ -89,5 +90,20 @@ router.get('/user/info', function(req, res, next) {
     request('http://www.xfz.cn/api/website/user/info/', function(error, response, body) {
         res.send(response);
     });
+});
+
+
+// 验证码图片
+router.get('/captcha', function (req, res) {
+    var captcha = svgCaptcha.create();
+    // req.session.captcha = captcha.text;
+    // res.type('svg');
+    // console.log('captcha=========>',captcha);
+    // res.send 是直接渲染到页面
+    res.json({
+        status: 0,
+        data: captcha.data
+    });
+    // res.status(200).send(captcha.data);
 });
 module.exports = router;
