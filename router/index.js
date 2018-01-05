@@ -93,7 +93,7 @@ router.get('/user/info', function(req, res, next) {
 });
 
 // test api
-router.get('api/test', function(req, res, next) {
+router.get('/api/test', function(req, res, next) {
     res.json({
         status: 0,
         data: {
