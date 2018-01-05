@@ -92,6 +92,21 @@ router.get('/user/info', function(req, res, next) {
     });
 });
 
+// test api
+router.get('api/test', function(req, res, next) {
+    res.json({
+        status: 0,
+        data: {
+            msg: 'I am a test word',
+            list: [
+                '我是一个小美女',
+                '我是一个超级小美女',
+                '我是小仙女',
+                '别问我为啥，no why'
+            ]
+        }
+    });
+});
 
 // 验证码图片
 router.get('/captcha', function (req, res) {
