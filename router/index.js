@@ -94,10 +94,12 @@ router.get('/user/info', function(req, res, next) {
 
 // test api
 router.get('/api/test', function(req, res, next) {
+    console.log('req.query======>',req.query.page)
     res.json({
         status: 0,
         data: {
             msg: 'I am a test word',
+            page: req.query.page,
             list: [
                 '我是一个小美女',
                 '我是一个超级小美女',
