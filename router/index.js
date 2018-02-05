@@ -113,8 +113,15 @@ router.get('/api/test', function(req, res, next) {
 router.get('/api/shorturl', function(req, res, next) {
     var apiKey = '4110768210';
     var requestUrl = req.query.url;
-    console.log('=======requestUrl', requestUrl)
     request(`http://api.t.sina.com.cn/short_url/shorten.json?source=${apiKey}&url_long=${requestUrl}`, function(error, response, body) {
+        res.send(body);
+    });
+})
+// get long url api
+router.get('/api/expandurl', function(req, res, nexut) {
+    var apiKey = '4110768210';
+    var requestUrl = req.query.url;
+    request(`http://api.t.sina.com.cn/short_url/expand.json?source=${apiKey}&url_short=${requestUrl}`, function(error, response, body) {
         res.send(body);
     });
 })
