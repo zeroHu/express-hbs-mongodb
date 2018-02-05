@@ -109,6 +109,15 @@ router.get('/api/test', function(req, res, next) {
         }
     });
 });
+// get shorten url api
+router.get('/api/shorturl', function(req, res, next) {
+    var apiKey = '4110768210';
+    var requestUrl = req.query.url;
+    console.log('=======requestUrl', requestUrl)
+    request(`http://api.t.sina.com.cn/short_url/shorten.json?source=${apiKey}&url_long=${requestUrl}`, function(error, response, body) {
+        res.send(body);
+    });
+})
 
 // 验证码图片
 router.get('/captcha', function (req, res) {
