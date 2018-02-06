@@ -1,0 +1,28 @@
+{{!< main}}
+<style>
+    input {
+        border:1px solid red;
+        padding: 5px 10px;
+    }
+</style>
+<script src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.min.js"></script>
+<div class="upload">
+    <form action="/api/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="提交" />
+    </form>
+    <img src="" alt="" class="imgurl" width="200" height="200">
+</div>
+{{>footer}}
+<script>
+    // ajax form 处理表单提交
+    $(function(){
+        $('form').ajaxForm({
+            success: function(response){
+                if (response.code === 1) {
+                    $('.imgurl').attr('src', response.fileurl)
+                }
+            }
+        });
+    });
+</script>

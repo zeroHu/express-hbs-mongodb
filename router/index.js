@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const app = express();
 const request = require('request');
 const Users = require('../database/modules/users'); //导入模型数据模块
 const router = express.Router();
 const svgCaptcha = require('svg-captcha');
+const files = require('./files.js');
+const path = require('path');
 
 // 连接数据库
 mongoose.connect('mongodb://localhost/expresshbs');
@@ -24,7 +27,6 @@ router.get('/', function(req, res) {
         if (err) {
             console.log(err);
         }
-        console.log('user=====>', user);
         res.render('pages/example');
     });
 });
@@ -35,7 +37,6 @@ router.get('/users', function(req, res) {
         if (err) {
             console.log(err);
         }
-        console.log('user=====>', user);
         res.render('pages/users',{userData:user});
     });
 });
@@ -49,6 +50,13 @@ router.get('/add', function(req, res) {
 router.get('/theme', function(req, res) {
     res.render('pages/theme', { title: 'zero', message: 'getsome' });
 });
+
+// 上传文件页面
+router.get('/upload', function(req, res) {
+    res.render('pages/upload');
+});
+
+
 /**********************************************   api接口   ****************************************************/
 // 添加人接口
 router.post('/adduser', function(req, res) {
@@ -125,6 +133,12 @@ router.get('/api/expandurl', function(req, res, nexut) {
         res.send(JSON.parse(body));
     });
 })
+
+// 上传文件
+router.post('/api/upload', files.upload)
+// 获取文件
+router.get('/api/getfile', files.getFile)
+
 
 // 验证码图片
 router.get('/captcha', function (req, res) {

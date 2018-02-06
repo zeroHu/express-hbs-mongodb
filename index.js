@@ -12,6 +12,7 @@ const helpers = require('./helpers'); //引入helpers
 
 // 用cookie中间件
 app.use(cookieParser());
+app.use('/uploads', express.static(path.resolve(__dirname, './uploads')));
 
 // 模板渲染相关信息
 app.engine('hbs', hbs.express3({
