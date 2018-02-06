@@ -4,6 +4,10 @@
         border:1px solid red;
         padding: 5px 10px;
     }
+    .tips {
+        font-size: 12px;
+        color: #999;
+    }
 </style>
 <script src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.min.js"></script>
 <div class="upload">
@@ -11,7 +15,9 @@
         <input type="file" name="file">
         <input type="submit" value="提交" />
     </form>
+    <p class="tips">上传最大文件限制为20m</p>
     <img src="" alt="" class="imgurl" width="200" height="200">
+    <p class="tips">图片限制200宽200高了</p>
 </div>
 {{>footer}}
 <script>
