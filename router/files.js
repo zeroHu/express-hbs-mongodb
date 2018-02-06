@@ -40,7 +40,7 @@ const getFile = (req, res, next) => {
             return;
         }
         var result = files.reverse().map(function (file) {
-            return { name: file, url: 'http://127.0.0.1:3001/uploads/' + file };
+            return { name: file, url: 'http://node.zeroyh.cn/uploads/' + file };
         })
         res.json(result);
     })

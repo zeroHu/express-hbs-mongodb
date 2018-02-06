@@ -2,23 +2,49 @@
 <div class="example">
     <div>我是示例页面</div>
     <div>下面是helper wordToSubstring示例</div>
-    <div>
+    <div class="color666">
         我是helper1{{{wordToSubstring '我是一行用来测试的文案我是一行用来测试的文案我是一行用来测试的文案'}}}
     </div>
     <div>下面是helper changeword 示例</div>
-    <div>
+    <div class="color666">
         我是helper2{{{changeword '我是一行用来测试的文案我是一行用来测试的文案我是一行用来测试的文案'}}}
     </div>
 
     <p>下面是导航</p>
-    <p><a href="/add">go to 添加用户页面</a></p>
-    <p><a href="/users">go to 查看用户表页面</a></p>
-    <p><a href="/theme">go to theme主题模板页面</a></p>
-    <p><a href="/upload">go to 上传文件页面</a></p>
+    <div class="page">
+        <p><a href="/add">添加用户页面</a></p>
+        <p><a href="/users">查看用户表页面</a></p>
+        <p><a href="/theme">theme主题模板页面</a></p>
+        <p><a href="/upload">上传文件页面</a></p>
+        <p><a href="/api/getfile">所有上传文件的接口</a></p>
+    </div>
 
     <p>下面是用svg-captcha 实现的图片验证码</p>
     <div class="captcha"></div>
 </div>
+<style>
+    * {
+        font-size: 14px;
+    }
+    div,p {
+        margin: 10px;
+    }
+    .color666 {
+        color: #666;
+        font-size: 12px;
+    }
+    .page p{
+        display: inline-block;
+        margin: 20px;
+    }
+    .page a {
+        padding: 4px 10px;
+        border: 1px solid red;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+    }
+</style>
 <script>
     $(function(){
         function getCaptcha(){
